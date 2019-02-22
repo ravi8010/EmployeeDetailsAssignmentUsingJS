@@ -1,0 +1,104 @@
+<html>
+<title>EmployeeDetails</title>
+<head>
+<center>
+<h4>Employee Details</h4>
+<body>
+<form name="form1" onsubmit="return grossSalary()">
+<b>Title<b>&nbsp&nbsp&nbsp&nbsp
+
+<select id="title" name="title">
+<option value="" >Title</option>
+<option value="Mr." >Mr.</option>
+<option value="Mrs." >Mrs.</option>
+<option value="Ms." >Ms.</option>
+</select><br><br>
+
+FirstName: &nbsp&nbsp&nbsp&nbsp<input type="text" name="fname"  style="margin-left:40px">
+<br><br>
+LastName: &nbsp&nbsp<input type="text" name="lname" style="margin-left:50px"/><br><br>
+Gross Salary: &nbsp&nbsp<input type="text" name="gsalary" style="margin-left:30px"/><br><br>
+Address &nbsp&nbsp<input type="text" name="address" style="margin-left:55px;font-size:11pt;height:60px"/><br><br><br>
+            <input type="submit" value="Salary Slip" style="margin-left:60px"/>
+</form>
+<script>
+function grossSalary()
+{
+
+var title1=document.forms["form1"]["title"].value;
+var fname=document.forms["form1"]["fname"].value;
+var lname=document.forms["form1"]["lname"].value;
+var gsalary=document.forms["form1"]["gsalary"].value;
+var address=document.forms["form1"]["address"].value;
+if(title1=="")
+{
+alert("title should not be empty");
+}
+else if(fname=="")
+{
+alert("Name should not be empty");
+}
+else if(lname=="")
+{
+alert("Lastname should not be empty");
+}
+else if(gsalary=="")
+{
+alert("salary can't be empty");
+}
+else if(address=="")
+{
+alert("Address can't be empty");
+}
+else if(gsalary<0)
+{
+alert("salary should be positive");
+}
+
+
+else if((fname.length+lname.length)>15)
+{
+alert("Name should not be greater than 15");
+}
+else 
+{
+   var gsal=parseInt(gsalary);
+    var gs=0;
+    if(gsal<18000)
+   {
+      gs=gsal;
+   }
+  else if(gsal<300000)
+ {
+ gs=gsal-(gsal*0.1);
+
+ }
+ else if(gsal<500000)
+ {
+ gs=gsal-(gsal*0.2);
+
+ }
+ else
+ {
+ gs=gsal-(gsal*0.3);
+
+}
+var myWindow = window.open("", "", "width=500,height=500");
+
+myWindow.document.write("Name :"+(title1+" "+fname+" "+lname)+"<br>" +"Address:"+address+"<br>"+"NetWorth  :"+gs);
+
+
+
+
+}
+
+
+
+
+}
+
+</script>
+</body>
+</center>
+</head>
+</html>
